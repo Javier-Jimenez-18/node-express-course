@@ -1,0 +1,34 @@
+1. Quickly explain how middleware is used in an Express application.
+
+Middleware functions have access to the request object (req), the response 
+object (res), and the next middleware function in the application's request-response cycle. 
+These functions are used to modify req and res objects for tasks like parsing request bodies, 
+adding response headers, etc.
+
+
+2. What does CRUD stand for?
+
+Create, Read, Update, and Delete. These four basic operations are necessary to implement 
+a persistent storage application.
+
+
+3. You are careful to store your sensitive information in a .env file.
+    a. How do you get your app to access the information in the .env file?
+
+First, you need to install an npm package, such as "dotenv" that automatically loads environment 
+variables from a .env file into the process. The dotenv package will be listed as a dependency 
+in your package.json file. In the .env file, you create a variable that will contain the sensitive 
+information. For example, a URI that contains the database password:
+
+    MONGO_URI=mongodb+srv://J_Jimenez:<password>@nodeexpressprojects.uryquno.mongodb.net/03-TASK-MANAGER?retryWrites=true&w=majority
+
+Finally, you need to require the .env file in your app.js file:
+
+    require('dotenv').config();
+
+
+    b. How do you protect the contents of the .env file so that it is not stored in your github
+       repository?
+
+You need to include the .env file in the .gitignore file so 
+that it doesn't get pushed to github, where any hacker can "scrape" your personal information.
